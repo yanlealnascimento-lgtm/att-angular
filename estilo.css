@@ -1,0 +1,32 @@
+* { box-sizing: border-box; }
+[ng-cloak] { display: none; }
+body { margin: 0; background: #f6f5ef; color: #25362d; font: 16px/1.5 "Segoe UI", sans-serif; }
+header, main { max-width: 1040px; margin: auto; padding: 18px clamp(16px,4vw,44px); }
+header { border-bottom: 1px solid #cdd4cb; font-size: 23px; }
+header span { background: #294f40; color: white; padding: 2px 8px; border-radius: 7px; }
+h1, h2 { font-family: Georgia, serif; font-weight: 500; letter-spacing: -.035em; }
+h1 { font-size: clamp(38px,6vw,64px); margin: 16px 0; }
+h2 { font-size: 26px; line-height: 1.2; margin: 0 0 14px; }
+form { margin-bottom: 24px; }
+form label { display: block; font-weight: 600; margin-bottom: 5px; }
+.entrada, .controles, nav { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.entrada input { flex: 1; min-width: 120px; }
+button, select, .entrada input { border: 1px solid #a9b6a8; border-radius: 7px; padding: 8px 12px; background: #fffefa; font: inherit; color: inherit; }
+button, select, input[type=checkbox] { cursor: pointer; }
+button:hover:enabled { border-color: #365e48; }
+.principal, .ativo { background: #244d3f; color: white; }
+button:disabled { opacity: .5; }
+.grade { display: grid; grid-template-columns: minmax(0,2fr) minmax(220px,1fr); gap: 16px; align-items: start; }
+.cartao { background: #fffefa; border: 1px solid #d5d8cd; border-radius: 14px; padding: 20px; margin-bottom: 14px; }
+.grade:not(:has(aside .cartao)) { grid-template-columns: 1fr; }
+ul { margin: 12px 0; padding: 0; list-style: none; }
+li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 0; border-top: 1px solid #e0e3d9; }
+li label { overflow-wrap: anywhere; }
+input, progress { accent-color: #315c47; }
+.feita { text-decoration: line-through; color: #647267; }
+.excluir { border: none; font-size: 14px; color: #74423b; }
+progress { display: block; width: 100%; }
+.aviso { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: #244d3f; color: white; padding: 10px 15px; border-radius: 10px; }
+details { border-top: 1px solid #e0e3d9; padding: 8px 0; }
+summary { cursor: pointer; }
+@media(max-width: 720px) { .grade { grid-template-columns: 1fr; } .cartao { padding: 15px; } }

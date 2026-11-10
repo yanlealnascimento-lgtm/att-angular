@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR" ng-app="tasklist">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SINDADOS-BA</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body ng-controller="Lista as lista">
+  <header><strong></strong>SINDADOS-BA</header>
+  <main ng-cloak>
+    <h1>SINDADOS-BA</h1>
+    <form ng-submit="lista.adicionar()">
+      <label for="nova">Escreva qualquer coisa</label>
+      <div class="entrada"><input id="nova" ng-model="lista.nova" placeholder="O que precisa ser feito?" maxlength="180" required><button class="principal">Adicionar</button></div>
+    </form>
+    <div class="grade">
+      <section class="cartao">
+        <h2>Homologações, Editais ou Acervo de notícias.</h2>
+        <ul>
+          <li ng-repeat="tarefa in lista.exibidas track by tarefa.id">
+            <label ng-class="{feita:tarefa.feita}"><input type="checkbox" ng-model="tarefa.feita" ng-change="lista.atualizar(tarefa)"> {{tarefa.nome}}</label>
+            <button class="excluir" ng-click="lista.excluir(tarefa)" ng-attr-aria-label="Excluir {{tarefa.nome}}">Excluir</button>
+          </li>
+        </ul>
+        <p ng-if="!lista.exibidas.length">{{lista.tarefas.length ? 'Não tem nada' : 'Sua lista está vazia. Adicione qualquer coisa'}}</p>
+        <paginas-tarefas></paginas-tarefas>
+      </section>
+    </div>
+    <aviso-tarefas></aviso-tarefas>
+  </main>
+  <script src="app.js"></script>
+  <script src="componentes/paginacao.js"></script>
+  <script src="componentes/acordeao.js"></script>
+  <script src="componentes/toast.js"></script>
+</body>
+</html>
